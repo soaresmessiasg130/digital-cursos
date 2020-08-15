@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DigitalCursos.Api.Context;
+using DigitalCursos.Api.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,6 +32,7 @@ namespace DigitalCursos.Api
                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"))
             );
             services.AddControllers();
+            services.AddScoped<IAlunoRepository, AlunoRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
