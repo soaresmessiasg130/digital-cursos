@@ -96,7 +96,7 @@ namespace DigitalCursos.Api.Controller
 
         var alunoToUpdate = await _repo.GetAluno(id);
 
-        if (alunoToUpdate != null) {
+        if (alunoToUpdate == null) {
           return NotFound(
             $"Aluno com id = {id} não encontrado!"
           );

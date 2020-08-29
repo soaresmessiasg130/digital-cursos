@@ -57,7 +57,7 @@ namespace DigitalCursos.Api.Repositories
     public async Task<Aluno> UpdateAluno(Aluno aluno)
     {
       var res = _context.DCAluno.FirstOrDefault(
-        aluno => aluno.AlunoId == aluno.AlunoId
+        c => c.AlunoId == aluno.AlunoId
       );
 
       if (res != null) {
