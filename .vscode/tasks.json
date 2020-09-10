@@ -14,7 +14,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "build",
+            "label": "build-web",
             "command": "dotnet",
             "type": "process",
             "args": [

@@ -4,6 +4,10 @@
     <ProjectReference Include="..\DigitalCursos.Models\DigitalCursos.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Net.Http.Json" Version="3.2.1" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>

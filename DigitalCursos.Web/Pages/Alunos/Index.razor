@@ -1,0 +1,42 @@
+@page "/alunos"
+@inject HttpClient http
+
+<h3>Alunos</h3>
+
+<br />
+
+@if (Alunos == null) {
+  <p>Carregando...</p>
+} else {
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Idade</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @foreach (var aluno in Alunos) {
+        <tr>
+          <td>@aluno.Nome</td>
+          <td>@aluno.Email</td>
+          <td>@aluno.Nascimento</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}
+
+@code {
+  public IEnumerable<Aluno> Alunos { get; set; }
+
+  protected async override Task OnInitializedAsync () {
+    await GetAlunos();
+  }
+
+  protected async Task GetAlunos () {
+    Alunos = await http.GetFromJsonAsync<IEnumerable<Aluno>>($"api/aluno");
+  }
+}
