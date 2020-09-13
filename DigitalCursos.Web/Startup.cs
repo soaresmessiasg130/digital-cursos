@@ -33,6 +33,10 @@ namespace DigitalCursos.Web
               client.BaseAddress = new Uri(@"http://localhost:5000");
               client.DefaultRequestHeaders.Add("Accept", "application/+json");
             });
+            services.AddHttpClient<ICursoService, CursoService>( client => {
+              client.BaseAddress = new Uri(@"http://localhost:5000");
+              client.DefaultRequestHeaders.Add("Accept", "application/+json");
+            });
             // services.AddScoped<HttpClient>( s =>
             // {
             //   return new HttpClient {
