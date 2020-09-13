@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using DigitalCursos.Web.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -28,12 +29,16 @@ namespace DigitalCursos.Web
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddScoped<HttpClient>( s =>
-            {
-              return new HttpClient {
-                BaseAddress = new Uri(@"http://localhost:5000")
-              };
+            services.AddHttpClient<IAlunoService, AlunoService>( client => {
+              client.BaseAddress = new Uri(@"http://localhost:5000");
+              client.DefaultRequestHeaders.Add("Accept", "application/+json");
             });
+            // services.AddScoped<HttpClient>( s =>
+            // {
+            //   return new HttpClient {
+            //     BaseAddress = new Uri(@"http://localhost:5000")
+            //   };
+            // });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
