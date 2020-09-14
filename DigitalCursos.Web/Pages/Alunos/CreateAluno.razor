@@ -1,0 +1,21 @@
+@page "/aluno/create"
+@inject IAlunoService _alunoService
+@inject NavigationManager navigation
+
+<h2>Novo Aluno</h2>
+
+<AlunoForm
+  Aluno="@aluno"
+  OnValidSubmit="CriarAluno"
+  ButtonTextCancelar="Cancelar"
+  ButtonTextSubmit="Salvar">
+</AlunoForm>
+
+@code {
+  private Aluno aluno = new Aluno();
+
+  async Task CriarAluno () {
+    await _alunoService.CreateAluno (aluno);
+  }
+
+}
