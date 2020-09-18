@@ -1,6 +1,6 @@
 <EditForm Model="@Aluno" OnValidSubmit="@OnValidSubmit">
   <DataAnnotationsValidator />
-  <ValitationSummary />
+  <ValidationSummary />
 
   <div class="form-group row">
     <label for="nome">Nome </label>
@@ -13,6 +13,14 @@
     <div class="col-sm-4">
       <InputText @bind-Value="Aluno.Sobrenome" class="form-control" />
       <ValidationMessage For="@(() => Aluno.Sobrenome)" />
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="email">Email</label>
+    <div class="col-sm-4">
+      <InputText @bind-Value="Aluno.Email" class="form-control" />
+      <ValidationMessage For="@(() => Aluno.Email)" />
     </div>
   </div>
 
@@ -63,7 +71,7 @@
   <button
     class="btn btn-danger"
     @onclick="@(() => navigation.NavigateTo("alunos"))">
-    @ButtonTextCancel
+    @ButtonTextCancelar
   </button>
 </EditForm>
 
@@ -86,7 +94,7 @@
   public string ButtonTextSubmit { get; set; } = "Salvar";
 
   [Parameter]
-  public string ButtonTextCancel { get; set; } = "Cancelar";
+  public string ButtonTextCancelar { get; set; } = "Cancelar";
 
   [Parameter]
   public EventCallback OnValidSubmit { get; set; }

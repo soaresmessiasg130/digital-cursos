@@ -26,11 +26,11 @@ namespace DigitalCursos.Api.Controller
 
         return Ok(result);
       }
-      catch (System.Exception)
+      catch (System.Exception ex)
       {
         return StatusCode(
           StatusCodes.Status500InternalServerError,
-          "Erro no retorno da lista de alunos."
+          $"Erro no retorno da lista de alunos.{ex.Message}"
         );
       }
     }

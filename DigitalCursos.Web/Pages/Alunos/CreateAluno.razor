@@ -16,6 +16,7 @@
 
   async Task CriarAluno () {
     await _alunoService.CreateAluno (aluno);
+    navigation.NavigateTo("api/aluno");
   }
 
 }
